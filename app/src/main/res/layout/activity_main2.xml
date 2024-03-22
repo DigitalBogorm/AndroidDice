@@ -9,13 +9,13 @@
 
     <TextView
         android:id="@+id/MainText"
-        android:layout_width="266dp"
-        android:layout_height="449dp"
+        android:layout_width="268dp"
+        android:layout_height="113dp"
         android:layout_marginStart="75dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="75dp"
-        android:text="@string/app_name"
-        android:textSize="48sp"
+        android:text="@string/screen"
+        android:textSize="34sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,9 +26,34 @@
         android:id="@+id/Roller"
         android:layout_width="194dp"
         android:layout_height="129dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginEnd="72dp"
         android:text="@string/roll"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.829" />
+
+    <Spinner
+        android:id="@+id/TypeSelector"
+        android:layout_width="224dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="52dp"
+        android:entries="@array/DType"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.379" />
+
+    <EditText
+        android:id="@+id/Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/amount"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.54" />
 </androidx.constraintlayout.widget.ConstraintLayout>

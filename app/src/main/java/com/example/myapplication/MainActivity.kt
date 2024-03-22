@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         val button = binding.Roller
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
+                //val diceNum = binding.Amount.
                 val diceRolls = rollDice(2, 6)
                 val output = diceRolls.joinToString(separator = ", ")
                 binding.MainText.setText(output)
