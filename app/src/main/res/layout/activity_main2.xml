@@ -9,10 +9,10 @@
 
     <TextView
         android:id="@+id/MainText"
-        android:layout_width="329dp"
-        android:layout_height="627dp"
+        android:layout_width="266dp"
+        android:layout_height="449dp"
         android:layout_marginStart="75dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="75dp"
         android:text="@string/app_name"
         android:textSize="48sp"
@@ -21,4 +21,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/Roller"
+        android:layout_width="194dp"
+        android:layout_height="129dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="152dp"
+        android:text="@string/roll"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
