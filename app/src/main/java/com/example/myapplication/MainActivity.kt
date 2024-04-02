@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
@@ -23,7 +24,8 @@ import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity(), SensorEventListener {
-
+    //Rester af forsøget på en rotations-sensor, droppet da forsøgs-telefonen viste sig at være ude
+    //af stand til at mærke rotation.
     private lateinit var sensorManager: SensorManager
     private var rotationSensor: Sensor? = null
 
@@ -48,8 +50,25 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         val button = binding.Roller
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                //val diceNum = binding.Amount.
-                val diceRolls = rollDice(2, 6)
+                val diceNum = binding.Amount.text.toString()
+                //diceVar bruges til at sætte terningetypen. 'when'-statementet sætter typen
+                // baseret på den valgte svarmulighed.
+                var diceVar = binding.TypeSelector.selectedItem.toString()
+                var type = 0
+                //Siden RNG'en bruger ranges, er tallene højere end terningens maksimale slag.
+                //Else-værdien er sat til at være væsentligt højere end de andre, for at der er
+                //tydelige udslag ved fejl.
+                when (diceVar) {
+                    "D4" -> type = 5
+                    "D6" -> type = 7
+                    "D8" -> type = 9
+                    "D10" -> type = 11
+                    "D12" -> type = 13
+                    "D20" -> type = 21
+                    else ->type = 42
+                }
+                //Terningerne rulles, og teksten på fronten sættes til resultatet.
+                val diceRolls = rollDice(diceNum.toInt(), type)
                 val output = diceRolls.joinToString(separator = ", ")
                 binding.MainText.setText(output)
             }
