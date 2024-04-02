@@ -18,6 +18,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.databinding.ActivityMain2Binding
 import com.example.myapplication.databinding.ActivityMainBinding
+import java.lang.Exception
 import java.lang.NullPointerException
 import java.sql.Array
 import kotlin.random.Random
@@ -68,9 +69,14 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                     else ->type = 42
                 }
                 //Terningerne rulles, og teksten på fronten sættes til resultatet.
-                val diceRolls = rollDice(diceNum.toInt(), type)
-                val output = diceRolls.joinToString(separator = ", ")
-                binding.MainText.setText(output)
+                try {
+                    val diceRolls = rollDice(diceNum.toInt(), type)
+                    val output = diceRolls.joinToString(separator = ", ")
+                    binding.MainText.setText(output)
+                } catch (e: Exception) {
+
+                }
+
             }
         })
 
