@@ -45,9 +45,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         // Get rotation vector sensor
         rotationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
 
-        val test = "Override Succesful"
-
-
         val button = binding.Roller
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
